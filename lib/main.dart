@@ -3,6 +3,58 @@ import 'package:flutter/material.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
+    @override
+    Widget build(BuildContext context) {
+      // TODO: implement build
+      return MaterialApp(
+        title: 'Welcome to Flutter',
+        home: MyHomePage(title: 'hola'),
+      );
+    }
+  }
+
+ Column _buildButtonColumn(Color color, IconData icon, String label) {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Icon(icon, color: color),
+        Container(
+          margin: const EdgeInsets.only(top: 8),
+          child: Text(
+            label,
+            style: TextStyle(
+              fontSize: 12,
+              fontWeight: FontWeight.w400,
+              color: color,
+            ),
+          ),
+        ),
+      ],
+    );
+ }
+
+class MyHomePage extends StatefulWidget {
+  MyHomePage({Key key, this.title}) : super(key: key);
+
+  // This widget is the home page of your application. It is stateful, meaning
+  // that it has a State object (defined below) that contains fields that affect
+  // how it looks.
+
+  // This class is the configuration for the state. It holds the values (in this
+  // case the title) provided by the parent (in this case the App widget) and
+  // used by the build method of the State. Fields in a Widget subclass are
+  // always marked "final".
+
+  final String title;
+
+  @override
+  _MyHomePageState createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  var _mytitle = "placeholder";
+
   @override
   Widget build(BuildContext context) {
     Widget titleSection = Container(
@@ -18,7 +70,7 @@ class MyApp extends StatelessWidget {
             Container(
               padding: const EdgeInsets.only(bottom: 8),
               child: Text(
-                'Oeschinen Lake Campground',
+                _mytitle,
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                 ),
@@ -43,6 +95,7 @@ class MyApp extends StatelessWidget {
   ),
 );
    Color color = Theme.of(context).primaryColor;
+  
 
 Widget buttonSection = Container(
   child: Row(
@@ -66,44 +119,52 @@ Widget textSection = Container(
     softWrap: true,
   ),
 );  
-    return MaterialApp(
-      title: 'Welcome to Flutter',
-      home: Scaffold(
+
+setState(() {
+      _mytitle = 'hello world';
+    });
+    return Scaffold(
         appBar: AppBar(
-          title: Text('Welcome to Flutter'),
+          title: Text('Hello'), // Text('Welcome to Flutter'),
         ),
-       body: ListView(            
+        body: ListView(            
                  children: [
-                   Image.asset('images/lake.jpg',
+                   Image.network('https://api.opencaribbean.org/api/v1/media/download/33268826-479c-4c70-bd0b-ddc3aa92b1fe.jpg',
                    width: 600,
                    height: 240,
-                   fit: BoxFit.cover,
+                   fit: BoxFit.cover
                    ),            
                   titleSection,
                   buttonSection,
                   textSection,            
        ],
-      ),
-    ),);
+      )
+        );
+  
   }
- Column _buildButtonColumn(Color color, IconData icon, String label) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Icon(icon, color: color),
-        Container(
-          margin: const EdgeInsets.only(top: 8),
-          child: Text(
-            label,
-            style: TextStyle(
-              fontSize: 12,
-              fontWeight: FontWeight.w400,
-              color: color,
-            ),
-          ),
-        ),
-      ],
-    );
- }
+
+
+  
+    // @override 
+    // Widget build(BuildContext context){
+    // return Scaffold(
+    //     appBar: AppBar(
+    //       title: Text(_mytitle), // Text('Welcome to Flutter'),
+    //     ),
+    //     body: ListView(            
+    //              children: [
+    //                Image.asset('images/lake.jpg',
+    //                width: 600,
+    //                height: 240,
+    //                fit: BoxFit.cover
+    //                ),            
+    //               titleSection,
+    //               buttonSection,
+    //               textSection,            
+    //    ],
+    //   )
+    //     );
+
+    // }
+
 }
