@@ -19,7 +19,9 @@ class NewProjectState extends State<NewProject>{
       appBar: AppBar(
         title: Text(
           'New Project',
-          style: TextStyle(fontSize: 20.0),
+          style: TextStyle(
+            fontFamily: 'Nunito',
+            fontSize: 20.0),
         )
       ),
       body: SingleChildScrollView(

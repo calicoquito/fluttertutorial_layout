@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:quito/newproject.dart';
+//import 'package:quito/newproject.dart';
+import 'newproject.dart';
 import 'openscreen.dart';
 
 void main() => runApp(MyApp());
@@ -8,10 +9,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Quito',
       theme: ThemeData(
-        primarySwatch: Colors.amber,
-      ),
+        fontFamily: 'Nunito',
+        primaryColor: Colors.white,
+        textTheme: TextTheme(
+          title: TextStyle(color: Colors.black12,)
+          ),),
       home: MyHomePage(),
       routes: <String, WidgetBuilder>{
         'new':(context)=>NewProject()
