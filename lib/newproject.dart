@@ -21,7 +21,8 @@ class NewProjectState extends State<NewProject>{
           'New Project',
           style: TextStyle(
             fontFamily: 'Nunito',
-            fontSize: 20.0),
+            fontSize: 20.0
+          ),
         )
       ),
       body: SingleChildScrollView(
@@ -124,6 +125,7 @@ class CheckItemState extends State<CheckItem>{
       margin: EdgeInsets.all(1.0),
       child: RawMaterialButton(
         onPressed: onchange,
+        splashColor: Colors.amberAccent,
         child: Row(
           children: <Widget>[
             Checkbox(

@@ -37,3 +37,9 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+
+
+// Icon icon = Icon(Icons.person);
+//         if (!(contact["image"] == "image-url")){
+//           icon = Image.network(contact["image"]);
+//         }

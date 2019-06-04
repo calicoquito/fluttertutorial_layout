@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-//import 'package:quito/newproject.dart';
 import 'newproject.dart';
 import 'openscreen.dart';
 
@@ -9,14 +8,17 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
       title: 'Quito',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         fontFamily: 'Nunito',
         primaryColor: Colors.white,
         textTheme: TextTheme(
-          title: TextStyle(color: Colors.black12,)
-          ),),
+          title: TextStyle(
+            color: Colors.black12,
+          )
+        ),
+      ),
       home: MyHomePage(),
       routes: <String, WidgetBuilder>{
         'new':(context)=>NewProject()
